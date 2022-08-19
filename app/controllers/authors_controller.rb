@@ -1,5 +1,12 @@
 class AuthorsController < ApplicationController
 
+    def authorinfo
+        authorname = params[:username]
+        authorfind = Author.where(name:authorname)
+        blogfind = Blog.where(authors_id: authorfind.id)
+        render :json => blog
+
+    end
     def addauthor
         # a = params[:author_id]
         b = params[:Name]

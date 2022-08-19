@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   post "createblog", to:"blogs#addblog"
 
-  put "blog/edit", to:"blogs#editblog"
+  put "editblog", to:"blogs#editblog"
 
-  put "blog/delete", to:"blogs#deleteblog"
+  delete "deleteblog", to:"blogs#deleteblog"
 end
