@@ -7,6 +7,11 @@ class AuthorsController < ApplicationController
         render :json => blog
 
     end
+
+    def authenticateuser
+        
+    end
+
     def addauthor
         # a = params[:author_id]
         b = params[:Name]
