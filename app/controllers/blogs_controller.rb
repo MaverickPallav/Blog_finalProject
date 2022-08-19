@@ -1,7 +1,20 @@
 class BlogsController < ApplicationController
     
     def showblog
-        render :json => Blog.all
+        b = Blog.all
+        k=Array.new
+        aname= 0
+        for i in b
+           aname =Author.find(i.authors_id).Name
+           k.push({"author_name":aname ,"Title":i.Title , "Summary":i.Summary })
+        end
+
+        # for i in authorID
+        #     authorName = Author.find
+        # end
+        # k={"AuthorName": , "Title":b.Title , "Summary":b.Summary }
+
+        render :json => k
     end
 
     def addblog

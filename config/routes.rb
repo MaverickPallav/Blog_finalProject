@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   put "editblog", to:"blogs#editblog"
 
   delete "deleteblog", to:"blogs#deleteblog"
+
+  get "allblog", to:"blogs#showblog"
 end
