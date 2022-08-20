@@ -13,10 +13,10 @@ class AuthorsController < ApplicationController
         b = params[:Password]
 
         authorfind = Author.find_by(Email: a,Password: b)
-        if authorfind
-            render :json => authorfind , :status => 200
+        if (authorfind)
+            render :json => authorfind
         else
-            render :html => "User not Found" , :status => 201
+            
         end
     end
 
@@ -36,7 +36,7 @@ class AuthorsController < ApplicationController
         author.save
         render :json => author
         else
-            render :html => "User already exist" , :status => 201
+            
         end
 
     end
