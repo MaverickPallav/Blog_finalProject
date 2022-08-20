@@ -9,7 +9,15 @@ class AuthorsController < ApplicationController
     end
 
     def authenticateuser
-        
+        a = params[:Email]
+        b = params[:Password]
+
+        authorfind = Author.find_by(Email: a,Password: b)
+        if authorfind
+            render :json => authorfind , :status => 200
+        else
+            render :html => "User not Found" , :status => 201
+        end
     end
 
     def addauthor
@@ -21,9 +29,16 @@ class AuthorsController < ApplicationController
         # f = parmas[:author_lastlogindate]
         g = params[:Bio]
 
+        authorfind = Author.find_by(Email: c,Password: d)
+
+        if (!authorfind)
         author = Author.new(Name:b,Email:c,Password:d,Bio:g)
         author.save
         render :json => author
+        else
+            render :html => "User already exist" , :status => 201
+        end
+
     end
     
     def editauthor
