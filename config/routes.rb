@@ -11,9 +11,13 @@ Rails.application.routes.draw do
 
   post "createblog", to:"blogs#addblog"
 
-  put "editblog", to:"blogs#editblog"
+  post "editblog", to:"blogs#editblog"
 
-  delete "deleteblog", to:"blogs#deleteblog"
+  post "deleteblog", to:"blogs#deleteblog"
 
   get "allblog", to:"blogs#showblog"
+
+  post "showuserblog", to:"blogs#showuserblog"
+
+  post "showthisblog", to: "blogs#showthisblog"
 end
