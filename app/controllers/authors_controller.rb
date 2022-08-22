@@ -1,10 +1,9 @@
 class AuthorsController < ApplicationController
 
     def authorinfo
-        authorname = params[:username]
-        authorfind = Author.where(name:authorname)
-        blogfind = Blog.where(authors_id: authorfind.id)
-        render :json => blog
+        a = params[:id]
+        authorfind = Author.find(a)
+        render :json => authorfind
 
     end
 
@@ -46,7 +45,7 @@ class AuthorsController < ApplicationController
     end
     
     def editauthor
-        author = Author.find(params[:author_id])
+        
         a = params[:id]
         b = params[:Name]
         c = params[:Email]
@@ -54,9 +53,10 @@ class AuthorsController < ApplicationController
         # e = params[:author_registereddate]
         # f = parmas[:author_lastlogindate]
         g = params[:Bio]
-
-        author.update(id:a,Name:b,Email:c,Password:d,Bio:g)
+        author = Author.find(a) 
+        author.update(Name:b,Email:c,Password:d,Bio:g)
         author.save
+        render :json => author
     end
 
     def removeauthor  

@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   post "removeauthor", to:"authors#removeauthor"
 
   post "editauthor", to:"authors#editauthor"
+
+  post "authorinfo", to:"authors#authorinfo"
 end
