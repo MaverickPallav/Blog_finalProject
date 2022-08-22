@@ -20,4 +20,10 @@ Rails.application.routes.draw do
   post "showuserblog", to:"blogs#showuserblog"
 
   post "showthisblog", to: "blogs#showthisblog"
+
+  get "allauthor", to:"authors#allauthor"
+
+  post "removeauthor", to:"authors#removeauthor"
+
+  post "editauthor", to:"authors#editauthor"
 end

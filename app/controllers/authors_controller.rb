@@ -8,6 +8,10 @@ class AuthorsController < ApplicationController
 
     end
 
+    def allauthor
+        render :json => Author.all
+    end
+
     def authenticateuser
         a = params[:Email]
         b = params[:Password]
@@ -56,8 +60,8 @@ class AuthorsController < ApplicationController
     end
 
     def removeauthor  
-
-        author = Author.find(params[:author_id])
+        a = params[:id]
+        author = Author.find(a)
         author.destroy
         author.save
         render :json => Author.all
